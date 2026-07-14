@@ -269,7 +269,7 @@ export const projects: Project[] = [
             "Lucide React",
         ],
 
-        githubUrl: "https://github.com/nadnad121021/portfolio",
+        githubUrl: "https://github.com/nadnad121021/dynamic-portfolio-v2",
         liveUrl: "https://danilo-alingasa.web.app",
     },
     {
