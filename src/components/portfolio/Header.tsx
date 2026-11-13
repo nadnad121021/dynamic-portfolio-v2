@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { Download, Menu, X } from "lucide-react";
+import {
+  // Download,
+  Menu,
+  X,
+} from "lucide-react";
 import { navigationItems } from "../../data/portfolio.data";
 // import logo from "../../../public/dan-animated.png";
 
@@ -41,14 +45,14 @@ export function Header() {
           ))}
         </nav>
 
-        <a
+        {/* <a
           href="https://drive.google.com/uc?export=download&id=1YZmCq5nK_9naUuIeLHmYfWZOjz1aF29l"
           download
           className="hidden items-center gap-2 rounded-xl border border-white/10 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-cyan-400/30 hover:bg-cyan-400/5 lg:inline-flex"
         >
           <Download className="h-4 w-4" />
           Resume
-        </a>
+        </a> */}
 
         <button
           type="button"
