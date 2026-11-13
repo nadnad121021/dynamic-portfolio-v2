@@ -7,6 +7,13 @@ import {
     Server,
 } from 'lucide-react';
 
+export type AvailableForHireStatus = 'available' | 'unavailable' | 'available-part-time';
+export type AvailabilityStatus = {
+    status: AvailableForHireStatus;
+    timezone?: string;
+    timeRange?: string | "24/7";
+};
+
 export type NavigationItem = {
     label: string;
     href: string;
@@ -74,6 +81,12 @@ export type Review = {
     image: string;
     review: string;
     linkedin?: string;
+};
+
+export const availabilityStatus: AvailabilityStatus = {
+    status: 'available-part-time',
+    timezone: 'Manila, Philippines (GMT+8)',
+    timeRange: '3am - 7am',
 };
 
 export const navigationItems: NavigationItem[] = [
@@ -393,6 +406,42 @@ export const projects: Project[] = [
 ];
 
 export const experiences: Experience[] = [
+    {
+        role: "Full Stack Engineer (Contract)",
+        company: "ECLARO BUSINESS SOLUTIONS INC (Client: SPINS)",
+        period: "August 2026 — Present",
+        location: "Remote",
+        description:
+            "Working as a Full Stack Engineer at ECLARO BUSINESS SOLUTIONS INC, assigned to SPINS, a retail data and analytics company. I contribute to building and maintaining web applications, APIs, and data pipelines using React, TypeScript, GraphQL, Python, and PostgreSQL on Google Cloud. I collaborate closely with the development team through pair programming and dedicate Fridays to independent development, improvements, and bug fixes.",
+
+        achievements: [
+            "Built new features for the company’s customer web portal, such as letting support staff view the portal as a specific customer, switching between accounts, and creating and managing custom groups.",
+            "Built admin tools for managing applications, user roles, and access permissions.",
+            "Improved a shared library of UI components used across several company apps, focusing on design consistency, usability, and keyboard accessibility.",
+            "Built automated data pipelines with Python and Apache Airflow that keep user access settings in sync, send security notifications, and produce data quality and sales reports.",
+            "Released features safely using feature flags and separate test environments, fixed production issues, and kept the code clean and well-tested."
+        ],
+
+        technologies: [
+            "React",
+            "TypeScript",
+            "GraphQL",
+            "Prisma",
+            "PostgreSQL",
+            "MySQL",
+            "Python",
+            "Apache Airflow",
+            "Google Cloud Platform",
+            "Bitbucket",
+            "CircleCI",
+            "Jest",
+            "Pytest"
+        ],
+
+        logo: "/logos/experience/eclaro_logo.jpg",
+        companyUrl: "https://www.eclaro.com/",
+        // backgroundClass: "bg-purple-500",
+    },
     {
         role: "Backend Developer (Contract)",
         company: "MUVR Technologies, Inc.",

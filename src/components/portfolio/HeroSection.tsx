@@ -1,8 +1,17 @@
 import { ArrowRight, Mail, Server } from "lucide-react";
-import { statistics } from "../../data/portfolio.data";
+import { availabilityStatus, statistics } from "../../data/portfolio.data";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
 export function HeroSection() {
+  const isUnavailable = availabilityStatus.status === "unavailable";
+  const isAvailablePartTime =
+    availabilityStatus.status === "available-part-time";
+  const availabilityLabel = {
+    available: "Available for new opportunities",
+    unavailable: "Not currently available",
+    "available-part-time": "Available part-time",
+  }[availabilityStatus.status];
+
   return (
     <>
       <section
@@ -16,12 +25,30 @@ export function HeroSection() {
 
         <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-4 py-2 text-sm font-semibold text-emerald-300">
+            <div
+              className={`mb-7 inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border px-4 py-2 text-sm font-semibold ${
+                isUnavailable
+                  ? "border-slate-400/20 bg-slate-400/5 text-slate-300"
+                  : "border-emerald-400/20 bg-emerald-400/5 text-emerald-300"
+              }`}
+            >
               <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                <span className="relative h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                {!isUnavailable && (
+                  <span className="absolute h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                )}
+                <span
+                  className={`relative h-2.5 w-2.5 rounded-full ${
+                    isUnavailable ? "bg-slate-400" : "bg-emerald-400"
+                  }`}
+                />
               </span>
-              Available for new opportunities
+              <span>{availabilityLabel}</span>
+              {isAvailablePartTime && availabilityStatus.timeRange && (
+                <span>{availabilityStatus.timeRange}</span>
+              )}
+              {isAvailablePartTime && availabilityStatus.timezone && (
+                <span>{availabilityStatus.timezone}</span>
+              )}
             </div>
 
             <p className="mb-5 text-lg font-semibold text-cyan-300">
